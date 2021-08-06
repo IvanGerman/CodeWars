@@ -1,24 +1,20 @@
-const getSquares = function (num) {
-  if (num === 1) {
-    alert("there are no consecutive perfect squares for number 1");
-    return;
-  };
-  if (num > 999999) {
-    alert(" the number you typed in is too big");
-    return;
-  };
-  if (num < 1) {
-    alert(" the number you typed in is too small");
-    return;
-  };
-  if (num % 2 === 0) {
-    alert(" no even numbers allowed");
-    return;
-  }
+function arithmetic(a, b, operator) {
 
-  let secondNumber = ((num - 1) / 2) ** 2;
-  let firstNumber = secondNumber + num;
-  return (firstNumber + "-" + secondNumber);
+  switch (operator) {
+
+    case "add":
+      return a + b;
+
+    case "subtract":
+      return a - b;
+
+    case "multiply":
+      return a * b;
+
+    case "divide":
+      return a / b;
+
+  };
 };
 
-getSquares(9);
+arithmetic(1, 3, "add");
