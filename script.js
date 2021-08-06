@@ -1,44 +1,19 @@
-function DNAStrand(dna){
-
-  let arr = [];
-  for ( let i = 0; i < dna.length + 1; i++ ) {
+function maskify(cc) {
     
-    switch(dna[i]) {
+  if ( cc == '' ) {
+      return '';
+  }
+  if ( typeof(cc) !== 'string' ) {
+      cc = cc.toString(); 
+  };
 
-      case "A": 
-        arr.push("T");
-        break;
-
-        case "T": 
-        arr.push("A");
-        break;
-
-        case "G": 
-        arr.push("C");
-        break;
-
-        case "C": 
-        arr.push("G");
-        break;
-    };
-  };  
-  
-  arr = arr.join('');
-  return arr;
-};
-
-DNAStrand("ATGCC");
-
-// second solution:
-function DNAStrand(dna) {
-  return dna.replace(/./g, function(c) {
-    return DNAStrand.pairs[c]
-  })
+  let ccLength = cc.length; 
+  if ( ccLength > 4 ) {
+      for ( let i = 0; i < ccLength - 4; i++ ) {
+          cc = cc.replace(cc[i], "#");
+      }
+  };
+  return cc;
 }
 
-DNAStrand.pairs = {
-  A: 'T',
-  T: 'A',
-  C: 'G',
-  G: 'C',
-}
+maskify(42426477589);
