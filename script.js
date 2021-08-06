@@ -1,19 +1,19 @@
-function maskify(cc) {
+let Calculator = {
+  average: function (...numbers) {
+
+    if (numbers.length === 0) {
+      return 0;
+    };
+
+    let averageNumber = 0;
+    let sum = 0;
     
-  if ( cc == '' ) {
-      return '';
+    for (let i = 0; i < numbers.length; i++) {
+      sum = sum + numbers[i];
+    };
+    averageNumber = sum / numbers.length
+    return averageNumber;
   }
-  if ( typeof(cc) !== 'string' ) {
-      cc = cc.toString(); 
-  };
+};
 
-  let ccLength = cc.length; 
-  if ( ccLength > 4 ) {
-      for ( let i = 0; i < ccLength - 4; i++ ) {
-          cc = cc.replace(cc[i], "#");
-      }
-  };
-  return cc;
-}
-
-maskify(42426477589);
+Calculator.average(2, 4, 3);
