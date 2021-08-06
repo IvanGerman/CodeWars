@@ -1,20 +1,44 @@
-function arithmetic(a, b, operator) {
+function DNAStrand(dna){
 
-  switch (operator) {
+  let arr = [];
+  for ( let i = 0; i < dna.length + 1; i++ ) {
+    
+    switch(dna[i]) {
 
-    case "add":
-      return a + b;
+      case "A": 
+        arr.push("T");
+        break;
 
-    case "subtract":
-      return a - b;
+        case "T": 
+        arr.push("A");
+        break;
 
-    case "multiply":
-      return a * b;
+        case "G": 
+        arr.push("C");
+        break;
 
-    case "divide":
-      return a / b;
-
-  };
+        case "C": 
+        arr.push("G");
+        break;
+    };
+  };  
+  
+  arr = arr.join('');
+  return arr;
 };
 
-arithmetic(1, 3, "add");
+DNAStrand("ATGCC");
+
+// second solution:
+function DNAStrand(dna) {
+  return dna.replace(/./g, function(c) {
+    return DNAStrand.pairs[c]
+  })
+}
+
+DNAStrand.pairs = {
+  A: 'T',
+  T: 'A',
+  C: 'G',
+  G: 'C',
+}
