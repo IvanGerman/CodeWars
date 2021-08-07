@@ -1,32 +1,22 @@
-function stray(numbers) {
-
-  let singleNumber;
-  let result = [];
-
-  numbers.forEach((number, index) => number === numbers[0] ? result.push(index) : null);
-
-  if (result.length === 1) {
-    singleNumber = numbers[0]; 
-    return singleNumber;
-  } else {
-    for ( let i = 0; i < numbers.length; i++ ) {
-      if ( numbers[i] !== numbers[0] ) {   
-        return numbers[i];
-      }
-    }
-  }
-};
-
-stray([1, 1, 7, 1, 1]);
-
-// another solution
-
-function stray(numbers) {
-  var a = numbers.sort();
+function euclideanDistance(point1, point2){
   
-  if(a[0] != a[1]) {
-    return a[0]
-  } 
-  return a[a.length-1]
+  let distance = 0;
+  let sum = 0;
+
+  if ( point1.length === 1 ) {
+
+    distance = Math.abs( point1[0] - point2[0] );
+    return + distance.toFixed(2);
+
+  } else {
+
+    for ( let i = 0; i < point1.length; i++ ) {
+      sum = sum + (point2[i] - point1[i])**2;
+    };
+
+    distance = Math.sqrt(sum);
+    return + distance.toFixed(2);
+  };
 };
 
+console.log(euclideanDistance([-1,2,5],[2,4,9]));   
