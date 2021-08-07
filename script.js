@@ -1,22 +1,39 @@
-function euclideanDistance(point1, point2){
+function createPhoneNumber(numbers){
+
+  let s = '(';
   
-  let distance = 0;
-  let sum = 0;
-
-  if ( point1.length === 1 ) {
-
-    distance = Math.abs( point1[0] - point2[0] );
-    return + distance.toFixed(2);
-
-  } else {
-
-    for ( let i = 0; i < point1.length; i++ ) {
-      sum = sum + (point2[i] - point1[i])**2;
-    };
-
-    distance = Math.sqrt(sum);
-    return + distance.toFixed(2);
+  let stringArr = [];
+  stringArr = numbers.map(String); 
+  for ( let i = 0; i < 3; i++ ) { ;
+    s = s + numbers[i]; 
   };
+
+  s += ') ';
+  
+  for ( let i = 3; i < 6; i++ ) { ;
+    s = s + numbers[i]; 
+  };
+  
+  s += '-';
+
+  for ( let i = 6; i < 10; i++ ) { ;
+    s = s + numbers[i]; 
+  };
+  
+  return s;
 };
 
-console.log(euclideanDistance([-1,2,5],[2,4,9]));   
+console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
+
+//another solution
+
+function createPhoneNumber(numbers){
+  var format = "(xxx) xxx-xxxx";
+  
+  for(var i = 0; i < numbers.length; i++)
+  {
+    format = format.replace('x', numbers[i]);
+  }
+  
+  return format;
+};
