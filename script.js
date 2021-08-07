@@ -1,24 +1,32 @@
-const getSquares = function (num) {
-  if (num === 1) {
-    alert("there are no consecutive perfect squares for number 1");
-    return;
-  };
-  if (num > 999999) {
-    alert(" the number you typed in is too big");
-    return;
-  };
-  if (num < 1) {
-    alert(" the number you typed in is too small");
-    return;
-  };
-  if (num % 2 === 0) {
-    alert(" no even numbers allowed");
-    return;
-  }
+function stray(numbers) {
 
-  let secondNumber = ((num - 1) / 2) ** 2;
-  let firstNumber = secondNumber + num;
-  return (firstNumber + "-" + secondNumber);
+  let singleNumber;
+  let result = [];
+
+  numbers.forEach((number, index) => number === numbers[0] ? result.push(index) : null);
+
+  if (result.length === 1) {
+    singleNumber = numbers[0]; 
+    return singleNumber;
+  } else {
+    for ( let i = 0; i < numbers.length; i++ ) {
+      if ( numbers[i] !== numbers[0] ) {   
+        return numbers[i];
+      }
+    }
+  }
 };
 
-getSquares(9);
+stray([1, 1, 7, 1, 1]);
+
+// another solution
+
+function stray(numbers) {
+  var a = numbers.sort();
+  
+  if(a[0] != a[1]) {
+    return a[0]
+  } 
+  return a[a.length-1]
+};
+
