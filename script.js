@@ -28,19 +28,30 @@
 
 //Bubblesort Once
 
-function bubblesortOnce(a) {
+// function bubblesortOnce(a) {
 
-  const clonedA = [...a];
+//   const clonedA = [...a];
 
-  for (let j = 0; j < clonedA.length; j++) {
-    if (clonedA[j] > clonedA[j + 1]) {
-      let x = clonedA[j];
-      clonedA[j] = clonedA[j + 1];
-      clonedA[j + 1] = x;
-    }
-  };
+//   for (let j = 0; j < clonedA.length; j++) {
+//     if (clonedA[j] > clonedA[j + 1]) {
+//       let x = clonedA[j];
+//       clonedA[j] = clonedA[j + 1];
+//       clonedA[j + 1] = x;
+//     }
+//   };
 
-  return clonedA;
-};
+//   return clonedA;
+// };
 
-bubblesortOnce([54, 7, 5, 3, 1, 2, 4, 6, 3]);
+// bubblesortOnce([54, 7, 5, 3, 1, 2, 4, 6, 3]);
+
+
+//--------------------------------------------------------------------------------------
+//Sort with Arrow Functions
+
+let OrderPeople = function(people){
+  return people.sort( (a, b) => {
+    return a.age - b.age;
+  } ); 
+  
+}
