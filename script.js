@@ -49,9 +49,62 @@
 //--------------------------------------------------------------------------------------
 //Sort with Arrow Functions
 
-let OrderPeople = function(people){
-  return people.sort( (a, b) => {
-    return a.age - b.age;
-  } ); 
+// let OrderPeople = function(people){
+//   return people.sort( (a, b) => {
+//     return a.age - b.age;
+//   } ); 
+// };
+
+
+//---------------------------------------------------------------------------------------
+// Who's Online?
+
+const whosOnline = (friends) => {
   
-}
+  let output = {
+    online: [],
+    offline: [],
+    away: []
+  };
+
+  friends.forEach(element => {
+    
+    if ( element.status == "offline" ) {
+      output.offline.push(element.username);
+    };
+
+    if ( element.status == "online" ) {
+
+      if ( element.lastActivity <= 10 ) { 
+        output.online.push(element.username);
+      } else {
+        output.away.push(element.username);
+      }
+    };
+  });
+  
+  if ( output.online.length == 0 ) { 
+    delete output.online;
+  };
+  if ( output.offline.length == 0 ) {
+    delete output.offline;
+  };
+  if ( output.away.length == 0 ) {
+    delete output.away;
+  };  
+  return output;
+};
+
+whosOnline([{
+  username: 'David',
+  status: 'online',
+  lastActivity: 10
+}, {
+  username: 'Lucy', 
+  status: 'offline',
+  lastActivity: 22
+}, {
+  username: 'Bob', 
+  status: 'online',
+  lastActivity: 104
+}])
