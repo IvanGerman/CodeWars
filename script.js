@@ -59,52 +59,92 @@
 //---------------------------------------------------------------------------------------
 // Who's Online?
 
-const whosOnline = (friends) => {
+// const whosOnline = (friends) => {
   
-  let output = {
-    online: [],
-    offline: [],
-    away: []
-  };
+//   let output = {
+//     online: [],
+//     offline: [],
+//     away: []
+//   };
 
-  friends.forEach(element => {
+//   friends.forEach(element => {
     
-    if ( element.status == "offline" ) {
-      output.offline.push(element.username);
-    };
+//     if ( element.status == "offline" ) {
+//       output.offline.push(element.username);
+//     };
 
-    if ( element.status == "online" ) {
+//     if ( element.status == "online" ) {
 
-      if ( element.lastActivity <= 10 ) { 
-        output.online.push(element.username);
-      } else {
-        output.away.push(element.username);
-      }
-    };
-  });
+//       if ( element.lastActivity <= 10 ) { 
+//         output.online.push(element.username);
+//       } else {
+//         output.away.push(element.username);
+//       }
+//     };
+//   });
   
-  if ( output.online.length == 0 ) { 
-    delete output.online;
+//   if ( output.online.length == 0 ) { 
+//     delete output.online;
+//   };
+//   if ( output.offline.length == 0 ) {
+//     delete output.offline;
+//   };
+//   if ( output.away.length == 0 ) {
+//     delete output.away;
+//   };  
+//   return output;
+// };
+
+// whosOnline([{
+//   username: 'David',
+//   status: 'online',
+//   lastActivity: 10
+// }, {
+//   username: 'Lucy', 
+//   status: 'offline',
+//   lastActivity: 22
+// }, {
+//   username: 'Bob', 
+//   status: 'online',
+//   lastActivity: 104
+// }])
+
+//-------------------------------------------------------------------------------------
+//Homogenous arrays
+
+function filterHomogenous(arrays) {
+  
+  let result;
+  let resultArr = [];
+
+  function proveHomo(arr) {
+
+    if (arr.length == 1) {
+      return true;
+    };
+    if (arr.length == 0) {
+      return false;
+    };
+
+    for ( let i = 0; i < arr.length -1; i++ ) {
+      
+      if ( typeof(arr[i]) !== typeof(arr[i+1]) ) {
+        return false;
+      };
+    };
+    return true;
   };
-  if ( output.offline.length == 0 ) {
-    delete output.offline;
+ 
+  for ( let i = 0; i < arrays.length; i++ ) {
+    
+    result = proveHomo(arrays[i]);
+    if (result) {
+      resultArr.push(arrays[i]);
+    }
   };
-  if ( output.away.length == 0 ) {
-    delete output.away;
-  };  
-  return output;
+  arrays = resultArr; 
+
+  return arrays;
 };
 
-whosOnline([{
-  username: 'David',
-  status: 'online',
-  lastActivity: 10
-}, {
-  username: 'Lucy', 
-  status: 'offline',
-  lastActivity: 22
-}, {
-  username: 'Bob', 
-  status: 'online',
-  lastActivity: 104
-}])
+filterHomogenous([[1, 5, 4], ['a', 3, 5], ['b'], [], ['1', 2, 3], ['n', 'm', 5, 6]]);
