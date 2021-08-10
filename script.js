@@ -112,39 +112,65 @@
 //-------------------------------------------------------------------------------------
 //Homogenous arrays
 
-function filterHomogenous(arrays) {
+// function filterHomogenous(arrays) {
   
-  let result;
-  let resultArr = [];
+//   let result;
+//   let resultArr = [];
 
-  function proveHomo(arr) {
+//   function proveHomo(arr) {
 
-    if (arr.length == 1) {
-      return true;
-    };
-    if (arr.length == 0) {
-      return false;
-    };
+//     if (arr.length == 1) {
+//       return true;
+//     };
+//     if (arr.length == 0) {
+//       return false;
+//     };
 
-    for ( let i = 0; i < arr.length -1; i++ ) {
+//     for ( let i = 0; i < arr.length -1; i++ ) {
       
-      if ( typeof(arr[i]) !== typeof(arr[i+1]) ) {
-        return false;
-      };
-    };
-    return true;
-  };
+//       if ( typeof(arr[i]) !== typeof(arr[i+1]) ) {
+//         return false;
+//       };
+//     };
+//     return true;
+//   };
  
-  for ( let i = 0; i < arrays.length; i++ ) {
+//   for ( let i = 0; i < arrays.length; i++ ) {
     
-    result = proveHomo(arrays[i]);
-    if (result) {
-      resultArr.push(arrays[i]);
-    }
-  };
-  arrays = resultArr; 
+//     result = proveHomo(arrays[i]);
+//     if (result) {
+//       resultArr.push(arrays[i]);
+//     }
+//   };
+//   arrays = resultArr; 
 
-  return arrays;
+//   return arrays;
+// };
+
+// filterHomogenous([[1, 5, 4], ['a', 3, 5], ['b'], [], ['1', 2, 3], ['n', 'm', 5, 6]]);
+
+// //another solution
+
+// let filterHomogenous = a => a.filter(b => b.length > 0 && b.every(e => typeof e == typeof b[0]));
+
+
+//-----------------------------------------------------------------------------------
+//Are arrow functions odd?
+
+
+function odds(values){
+  
+  console.log(values.filter( (element) => {
+    if ( element % 2 !== 0) {
+      return element;
+    }
+ } ) );
+
+  return values.filter( (element) => {
+     if ( element % 2 !== 0) {
+       return element;
+     }
+  } ); 
 };
 
-filterHomogenous([[1, 5, 4], ['a', 3, 5], ['b'], [], ['1', 2, 3], ['n', 'm', 5, 6]]);
+odds([1, 2, 3, 4, 5, 6]);
