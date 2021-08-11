@@ -173,9 +173,26 @@
 //-----------------------------------------------------------------------------------------
 //Test Your Knowledge Of Function Scope
 
-let  add = function(x) {
+// let  add = function(x) {
     
-  return function(y) { return x + y; };
+//   return function(y) { return x + y; };
+// };
+
+// add(3)(5);
+
+
+//-----------------------------------------------------------------------------------------
+//Run your String
+
+
+function runYourString (arg, obj) {
+
+  return new Function(obj.param, obj.func)(arg);
+
 };
 
-add(3)(5); 
+runYourString(4, {
+  param: 'num',                   
+  func: 'return Math.sqrt(num)'  
+});
+
