@@ -185,14 +185,33 @@
 //Run your String
 
 
-function runYourString (arg, obj) {
+// function runYourString (arg, obj) {
 
-  return new Function(obj.param, obj.func)(arg);
+//   return new Function(obj.param, obj.func)(arg);
 
-};
+// };
 
-runYourString(4, {
-  param: 'num',                   
-  func: 'return Math.sqrt(num)'  
-});
+// runYourString(4, {
+//   param: 'num',                   
+//   func: 'return Math.sqrt(num)'  
+// });
+
+
+//-----------------------------------------------------------------------------------------
+//Factorial Factory
+
+function factorial (n) {
+  
+  if ( n > 1 ) {
+    return n*factorial(n-1);
+  } else {
+    if ( n < 0 ) {
+      return null;
+    } else {
+      return 1;
+    };
+  };
+}
+
+console.log(factorial(5)); 
 
