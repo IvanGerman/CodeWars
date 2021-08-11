@@ -200,18 +200,61 @@
 //-----------------------------------------------------------------------------------------
 //Factorial Factory
 
-function factorial (n) {
+// function factorial (n) {
   
-  if ( n > 1 ) {
-    return n*factorial(n-1);
-  } else {
-    if ( n < 0 ) {
-      return null;
-    } else {
-      return 1;
-    };
-  };
+//   if ( n > 1 ) {
+//     return n*factorial(n-1);
+//   } else {
+//     if ( n < 0 ) {
+//       return null;
+//     } else {
+//       return 1;
+//     };
+//   };
+// }
+
+// console.log(factorial(5)); 
+
+
+//-----------------------------------------------------------------------------------------
+
+//Recursion 101
+
+ 
+
+function solve( a, b ) {
+  while ( a >= (2 * b) || b >= (2 * a) ) {
+    if ( a === 0 || b === 0 ) {
+      return [a, b];
+    } else if ( a >= ( 2 * b ) ) {
+      a = a % ( 2 * b );
+    } else if ( b >= 2 * a ) {
+      b = b% ( 2 * a );
+    }
+  }
+  return [a, b];
+
+};
+
+console.log(solve(6,19));
+
+//another solution
+
+function solve(a,b){
+  console.log(a,b)
+  if (a === 0 || b === 0){
+    return [a,b]
+  }
+
+  if(a >= 2*b){
+    a = a% (2*b)
+    return solve(a,b)
+  }
+
+  if(b >= 2*a){
+    b = b%(2*a)
+    return solve(a,b)
+  }
+  
+  return[a,b]
 }
-
-console.log(factorial(5)); 
-
