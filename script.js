@@ -158,19 +158,24 @@
 //Are arrow functions odd?
 
 
-function odds(values){
-  
-  console.log(values.filter( (element) => {
-    if ( element % 2 !== 0) {
-      return element;
-    }
- } ) );
+// function odds(values){
 
-  return values.filter( (element) => {
-     if ( element % 2 !== 0) {
-       return element;
-     }
-  } ); 
+//   return values.filter( (element) => {
+//      if ( element % 2 !== 0) {
+//        return element;
+//      }
+//   } ); 
+// };
+
+//odds([1, 2, 3, 4, 5, 6]);
+
+
+//-----------------------------------------------------------------------------------------
+//Test Your Knowledge Of Function Scope
+
+let  add = function(x) {
+    
+  return function(y) { return x + y; };
 };
 
-odds([1, 2, 3, 4, 5, 6]);
+add(3)(5); 
