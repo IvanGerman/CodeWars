@@ -222,39 +222,56 @@
 
  
 
-function solve( a, b ) {
-  while ( a >= (2 * b) || b >= (2 * a) ) {
-    if ( a === 0 || b === 0 ) {
-      return [a, b];
-    } else if ( a >= ( 2 * b ) ) {
-      a = a % ( 2 * b );
-    } else if ( b >= 2 * a ) {
-      b = b% ( 2 * a );
-    }
-  }
-  return [a, b];
+// function solve( a, b ) {
+//   while ( a >= (2 * b) || b >= (2 * a) ) {
+//     if ( a === 0 || b === 0 ) {
+//       return [a, b];
+//     } else if ( a >= ( 2 * b ) ) {
+//       a = a % ( 2 * b );
+//     } else if ( b >= 2 * a ) {
+//       b = b% ( 2 * a );
+//     }
+//   }
+//   return [a, b];
 
+// };
+
+// console.log(solve(6,19));
+
+// //another solution
+
+// function solve(a,b){
+//   console.log(a,b)
+//   if (a === 0 || b === 0){
+//     return [a,b]
+//   }
+
+//   if(a >= 2*b){
+//     a = a% (2*b)
+//     return solve(a,b)
+//   }
+
+//   if(b >= 2*a){
+//     b = b%(2*a)
+//     return solve(a,b)
+//   }
+  
+//   return[a,b]
+// }
+
+//-----------------------------------------------------------------------------------------
+//Decimal to binary converter
+
+
+function decToBin(d) {
+  
+  if (d === 1) {
+    return '1';
+  };
+  if (d === 0) {
+    return '0';
+  };
+  return decToBin(Math.floor(d / 2)) + (d % 2);
 };
 
-console.log(solve(6,19));
-
-//another solution
-
-function solve(a,b){
-  console.log(a,b)
-  if (a === 0 || b === 0){
-    return [a,b]
-  }
-
-  if(a >= 2*b){
-    a = a% (2*b)
-    return solve(a,b)
-  }
-
-  if(b >= 2*a){
-    b = b%(2*a)
-    return solve(a,b)
-  }
-  
-  return[a,b]
-}
+console.log(decToBin(0));
