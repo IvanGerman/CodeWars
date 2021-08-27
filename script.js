@@ -280,20 +280,83 @@
 //-----------------------------------------------------------------------------------------
 //Brackets Issue
 
-const OPEN_BRACKETS = ['(', '{'];
-const BRACKETS_PAIR = {
-  [')']: '(',
-  ['}']: '{'
-};
+// const OPEN_BRACKETS = ['(', '{'];
+// const BRACKETS_PAIR = {
+//   [')']: '(',
+//   ['}']: '{'
+// };
 
-function areBracketsOK(str) {
+// function areBracketsOK(str) {
+
+//   let stack = [];
+
+//   for (let i = 0; i < str.length; i++) {
+//     let currentSymbol = str[i];
+
+//     if (OPEN_BRACKETS.includes(currentSymbol)) {
+
+//       stack.push(currentSymbol);
+
+//     } else {
+
+//       if (stack.length === 0) {
+//         return false;
+//       };
+
+//       let topElement = stack[stack.length - 1];
+//       if (BRACKETS_PAIR[currentSymbol] === topElement) {
+//         stack.pop();
+//       } else {
+//         return false;
+//       };
+//     }
+//   }
+//   return stack.length === 0;
+// }
+
+
+// console.log(areBracketsOK('()()()'));
+// console.log(areBracketsOK('()(()()'));
+// console.log(areBracketsOK('(()()())'));
+
+
+//-----------------------------------------------------------------------------------------------------
+// Brackets Issue extended version
+
+const config1 = [['(', ')']];
+const config2 = [['(', ')'], ['[', ']']];
+const config3 = [['(', ')'], ['[', ']'], ['{', '}']];
+const config4 = [['|', '|']];
+const config5 = [['(', ')'], ['|', '|']];
+const config6 = [['1', '2'], ['3', '4'], ['5', '6'], ['7', '7'], ['8', '8']];
+const config7 = [['(', ')'], ['[', ']'], ['{', '}'], ['|', '|']];
+
+
+function check(str, bracketsConfig) { 
+
+  const openBrackets = [];
+  const bracketsPairs = {};
+  const similarPairElements = [];
+  
+  for ( let i = 0; i < bracketsConfig.length; i++ ) {
+    openBrackets.push(bracketsConfig[i][0]);
+    bracketsPairs[bracketsConfig[i][1]] = bracketsConfig[i][0];
+    if ( bracketsConfig[i][0] === bracketsConfig[i][1] ) {
+      similarPairElements.push(bracketsConfig[i][0]);
+    }
+  };
 
   let stack = [];
 
   for (let i = 0; i < str.length; i++) {
     let currentSymbol = str[i];
 
-    if (OPEN_BRACKETS.includes(currentSymbol)) {
+    if (openBrackets.includes(currentSymbol)) {
+
+      if ( stack.includes(currentSymbol) && similarPairElements.includes(currentSymbol) ) {
+        stack.pop();
+        continue;
+      };
 
       stack.push(currentSymbol);
 
@@ -304,7 +367,7 @@ function areBracketsOK(str) {
       };
 
       let topElement = stack[stack.length - 1];
-      if (BRACKETS_PAIR[currentSymbol] === topElement) {
+      if (bracketsPairs[currentSymbol] === topElement) {
         stack.pop();
       } else {
         return false;
@@ -312,9 +375,9 @@ function areBracketsOK(str) {
     }
   }
   return stack.length === 0;
-}
 
+};
 
-console.log(areBracketsOK('()()()'));
-console.log(areBracketsOK('()(()()'));
-console.log(areBracketsOK('(()()())'));
+console.log(check('||', config4)); 
+//console.log(check('([{}])', config3));
+//check('111115611111111222288888822225577877778775555666677777777776622222', config6);
