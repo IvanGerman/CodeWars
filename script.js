@@ -263,15 +263,58 @@
 //Decimal to binary converter
 
 
-function decToBin(d) {
+// function decToBin(d) {
   
-  if (d === 1) {
-    return '1';
-  };
-  if (d === 0) {
-    return '0';
-  };
-  return decToBin(Math.floor(d / 2)) + (d % 2);
+//   if (d === 1) {
+//     return '1';
+//   };
+//   if (d === 0) {
+//     return '0';
+//   };
+//   return decToBin(Math.floor(d / 2)) + (d % 2);
+// };
+
+// console.log(decToBin(0));
+
+
+//-----------------------------------------------------------------------------------------
+//Brackets Issue
+
+const OPEN_BRACKETS = ['(', '{'];
+const BRACKETS_PAIR = {
+  [')']: '(',
+  ['}']: '{'
 };
 
-console.log(decToBin(0));
+function areBracketsOK(str) {
+
+  let stack = [];
+
+  for (let i = 0; i < str.length; i++) {
+    let currentSymbol = str[i];
+
+    if (OPEN_BRACKETS.includes(currentSymbol)) {
+
+      stack.push(currentSymbol);
+
+    } else {
+
+      if (stack.length === 0) {
+        return false;
+      };
+
+      let topElement = stack[stack.length - 1];
+      if (BRACKETS_PAIR[currentSymbol] === topElement) {
+        stack.pop();
+      } else {
+        return false;
+      };
+    }
+  }
+  return stack.length === 0;
+}
+
+
+console.log(areBracketsOK('()()()'));
+console.log(areBracketsOK('()(()()'));
+console.log(areBracketsOK('(()()())'));
