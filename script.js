@@ -12,7 +12,7 @@
 //     return;
 //   };
 //   if (num % 2 === 0) {
-//     alert(" no even numbers allowed");
+//     alert(" no even numbers almined");
 //     return;
 //   }
 
@@ -480,9 +480,63 @@
 // Convert Hash To An Array
 
 
-function convertHashToArray(hash){
-  let hashSorted = Object.keys(hash).sort().reduce((r, k) => (r[k] = hash[k], r), {});
-  return Object.entries(hashSorted);
-};
+// function convertHashToArray(hash){
+//   let hashSorted = Object.keys(hash).sort().reduce((r, k) => (r[k] = hash[k], r), {});
+//   return Object.entries(hashSorted);
+// };
 
-console.log(convertHashToArray({name: "Jeremy", age: 24})); 
+// console.log(convertHashToArray({name: "Jeremy", age: 24})); 
+
+
+//-----------------------------------------------------------------------------------------------------
+// Element equals its index
+
+function indexEqualsValue(a) { 
+
+  // const allIndexes = [];
+  // for ( let i = 0; i < a.length; i++ ) {
+  //   if ( a[i] == i ) {
+  //     allIndexes.push(i);
+  //   }
+  // }
+  
+  // if ( allIndexes.length === 0 ) {
+  //   return -1;
+  // } else {
+  //   return Math.min(...allIndexes);
+  // };
+
+
+  // for ( let i = 0; i < a.length; i++ ) {
+  //   if ( a[i] == i ) {
+  //     return i;
+  //   }
+  // };
+  // return -1;
+
+
+  function findInd(arr, min, max) {
+
+    if ( min > max ) {
+      return -1;
+    }
+
+    let avg = Math.floor( (max + min) / 2 );
+
+    if ( arr[avg] === avg ) {
+      let value = findInd( arr, min, avg - 1 );
+      return value !== -1 && value < avg ? value : avg;
+    };
+
+    if ( arr[avg] > avg ) {
+      return findInd( arr, min, avg - 1 );
+    } else {
+      return findInd( arr, avg + 1, max );
+    };
+  
+  };
+
+  return findInd( a, 0, a.length - 1 );
+}
+
+console.log(indexEqualsValue([-5, 1, 2, 3, 4, 5, 7, 10, 15]));
