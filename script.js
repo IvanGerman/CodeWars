@@ -456,22 +456,33 @@
 //-----------------------------------------------------------------------------------------------------
 // Basics 04: Rotate Matrix
 
-let rotateMatrix = arr => { 
+// let rotateMatrix = arr => { 
 
-  const subArrNumber = arr[0].length; 
-  const subArrLength = arr.length;    
-  const resultArr = [];
+//   const subArrNumber = arr[0].length; 
+//   const subArrLength = arr.length;    
+//   const resultArr = [];
 
-  for ( let i = subArrNumber - 1; i >= 0; i-- ) {
+//   for ( let i = subArrNumber - 1; i >= 0; i-- ) {
     
-    const temporaryArr = [];
-    for ( let j = 0; j < subArrLength; j++ ) {
-      temporaryArr.push(arr[j][i]);
-    };
+//     const temporaryArr = [];
+//     for ( let j = 0; j < subArrLength; j++ ) {
+//       temporaryArr.push(arr[j][i]);
+//     };
 
-    resultArr.push(temporaryArr);
-  }
-  return resultArr;
-}
+//     resultArr.push(temporaryArr);
+//   }
+//   return resultArr;
+// }
 
-console.log(rotateMatrix([[-1,4,5],[2,3,4]]));
+// console.log(rotateMatrix([[-1,4,5],[2,3,4]]));
+
+//-----------------------------------------------------------------------------------------------------
+// Convert Hash To An Array
+
+
+function convertHashToArray(hash){
+  let hashSorted = Object.keys(hash).sort().reduce((r, k) => (r[k] = hash[k], r), {});
+  return Object.entries(hashSorted);
+};
+
+console.log(convertHashToArray({name: "Jeremy", age: 24})); 
