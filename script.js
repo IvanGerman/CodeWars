@@ -491,7 +491,7 @@
 //-----------------------------------------------------------------------------------------------------
 // Element equals its index
 
-function indexEqualsValue(a) { 
+//function indexEqualsValue(a) { 
 
   // const allIndexes = [];
   // for ( let i = 0; i < a.length; i++ ) {
@@ -515,28 +515,56 @@ function indexEqualsValue(a) {
   // return -1;
 
 
-  function findInd(arr, min, max) {
+//   function findInd(arr, min, max) {
 
-    if ( min > max ) {
-      return -1;
-    }
+//     if ( min > max ) {
+//       return -1;
+//     }
 
-    let avg = Math.floor( (max + min) / 2 );
+//     let avg = Math.floor( (max + min) / 2 );
 
-    if ( arr[avg] === avg ) {
-      let value = findInd( arr, min, avg - 1 );
-      return value !== -1 && value < avg ? value : avg;
-    };
+//     if ( arr[avg] === avg ) {
+//       let value = findInd( arr, min, avg - 1 );
+//       return value !== -1 && value < avg ? value : avg;
+//     };
 
-    if ( arr[avg] > avg ) {
-      return findInd( arr, min, avg - 1 );
-    } else {
-      return findInd( arr, avg + 1, max );
-    };
+//     if ( arr[avg] > avg ) {
+//       return findInd( arr, min, avg - 1 );
+//     } else {
+//       return findInd( arr, avg + 1, max );
+//     };
   
-  };
+//   };
 
-  return findInd( a, 0, a.length - 1 );
-}
+//   return findInd( a, 0, a.length - 1 );
+// }
 
-console.log(indexEqualsValue([-5, 1, 2, 3, 4, 5, 7, 10, 15]));
+// console.log(indexEqualsValue([-5, 1, 2, 3, 4, 5, 7, 10, 15]));
+
+
+//-----------------------------------------------------------------------------------------------------
+// Array.diff
+
+
+function arrayDiff(a, b) {
+
+  // works for simple tests
+  // let a2 = [...new Set(a)];
+
+  // for (let i = 0; i < b.length; i++) {
+    
+  //   for (let j = 0; j < a2.length; j++) {
+
+  //      if ( a2[j] === b[i] ) {
+
+  //        const index = a2.indexOf(a2[j]);
+  //        a2.splice(index, 1);
+
+  //      };
+  //   } 
+  // }
+  // return a2;
+  return a.filter( element => !b.includes(element) );
+};
+
+console.log(arrayDiff([1,2,3], [1,2]));  
