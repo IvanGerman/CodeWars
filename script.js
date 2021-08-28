@@ -421,33 +421,57 @@
 //-----------------------------------------------------------------------------------------------------
 // Matrix creation
 
-function getMatrix(number) {
+// function getMatrix(number) {
    
-  let firstArr = [];
+//   let firstArr = [];
  
-  for ( let i = 0; i < number; i++ ) {
-    let secondArr = [];
-    for ( let j = 0; j < number; j++ ) {
-      if ( i === j ) {
-        secondArr.push(1);
-      } else {
-        secondArr.push(0)
-      }
+//   for ( let i = 0; i < number; i++ ) {
+//     let secondArr = [];
+//     for ( let j = 0; j < number; j++ ) {
+//       if ( i === j ) {
+//         secondArr.push(1);
+//       } else {
+//         secondArr.push(0)
+//       }
+//     };
+//     firstArr.push(secondArr);
+//   }
+
+//   return firstArr;
+// };
+
+// // another solution
+// function getMatrix2(number) {
+//   const matrix = [];
+//   for (let i = 0; i < number; i++) {
+//     matrix[i] = Array(number).fill(0)
+//     matrix[i][i] = 1;
+//   }
+//   return matrix;
+// } 
+
+// console.log(getMatrix(5)); 
+
+
+//-----------------------------------------------------------------------------------------------------
+// Basics 04: Rotate Matrix
+
+let rotateMatrix = arr => { 
+
+  const subArrNumber = arr[0].length; 
+  const subArrLength = arr.length;    
+  const resultArr = [];
+
+  for ( let i = subArrNumber - 1; i >= 0; i-- ) {
+    
+    const temporaryArr = [];
+    for ( let j = 0; j < subArrLength; j++ ) {
+      temporaryArr.push(arr[j][i]);
     };
-    firstArr.push(secondArr);
+
+    resultArr.push(temporaryArr);
   }
+  return resultArr;
+}
 
-  return firstArr;
-};
-
-// another solution
-function getMatrix2(number) {
-  const matrix = [];
-  for (let i = 0; i < number; i++) {
-    matrix[i] = Array(number).fill(0)
-    matrix[i][i] = 1;
-  }
-  return matrix;
-} 
-
-console.log(getMatrix(5)); 
+console.log(rotateMatrix([[-1,4,5],[2,3,4]]));
