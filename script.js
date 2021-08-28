@@ -387,30 +387,67 @@
 // Towel Sort
 
 
-function towelSort (matrix) {
+// function towelSort (matrix) {
 
-  if ( matrix === undefined || matrix.length === 0 ) {
-    return [];
-  };
+//   if ( matrix === undefined || matrix.length === 0 ) {
+//     return [];
+//   };
   
-  let resultArray = [];
+//   let resultArray = [];
 
-  for ( let i = 0; i < matrix.length; i++ ) { //debugger
+//   for ( let i = 0; i < matrix.length; i++ ) { //debugger
 
-    if ( i % 2 !== 0 ) { console.log('i:',matrix[i]);
-      matrix[i] = matrix[i].reverse(); console.log('matrix[i] = ', matrix[i]);
+//     if ( i % 2 !== 0 ) { console.log('i:',matrix[i]);
+//       matrix[i] = matrix[i].reverse(); console.log('matrix[i] = ', matrix[i]);
+//     };
+
+//     for ( let j = 0; j < matrix[i].length; j++ ) { console.log('matrix[i][j] = ', matrix[i][j]);
+//        resultArray.push(matrix[i][j]);
+//     };
+//   };
+//   console.log('resultArray = ', resultArray);
+//   return resultArray;
+// };
+
+// const matrix = [
+//   [1, 2],
+//   [3, 4],
+// ];
+// towelSort(matrix);
+
+
+
+
+//-----------------------------------------------------------------------------------------------------
+// Matrix creation
+
+function getMatrix(number) {
+   
+  let firstArr = [];
+ 
+  for ( let i = 0; i < number; i++ ) {
+    let secondArr = [];
+    for ( let j = 0; j < number; j++ ) {
+      if ( i === j ) {
+        secondArr.push(1);
+      } else {
+        secondArr.push(0)
+      }
     };
+    firstArr.push(secondArr);
+  }
 
-    for ( let j = 0; j < matrix[i].length; j++ ) { console.log('matrix[i][j] = ', matrix[i][j]);
-       resultArray.push(matrix[i][j]);
-    };
-  };
-  console.log('resultArray = ', resultArray);
-  return resultArray;
+  return firstArr;
 };
 
-const matrix = [
-  [1, 2],
-  [3, 4],
-];
-towelSort(matrix);
+// another solution
+function getMatrix2(number) {
+  const matrix = [];
+  for (let i = 0; i < number; i++) {
+    matrix[i] = Array(number).fill(0)
+    matrix[i][i] = 1;
+  }
+  return matrix;
+} 
+
+console.log(getMatrix(5)); 
