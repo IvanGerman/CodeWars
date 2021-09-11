@@ -574,14 +574,32 @@
 //-----------------------------------------------------------------------------------------------------
 //Absent vowel
 
-function absentVowel(x){
+// function absentVowel(x){
 
-  if ( x.match(/a/gi) === null) return 0;
-  if ( x.match(/e/gi) === null) return 1;
-  if ( x.match(/i/gi) === null) return 2;
-  if ( x.match(/o/gi) === null) return 3;
-  if ( x.match(/u/gi) === null) return 4;
+//   if ( x.match(/a/gi) === null) return 0;
+//   if ( x.match(/e/gi) === null) return 1;
+//   if ( x.match(/i/gi) === null) return 2;
+//   if ( x.match(/o/gi) === null) return 3;
+//   if ( x.match(/u/gi) === null) return 4;
   
-};
+// };
 
-console.log(absentVowel("John Doe hs seven red pples under his bsket" ));
+// console.log(absentVowel("John Doe hs seven red pples under his bsket" ));
+
+
+//-----------------------------------------------------------------------------------------------------
+//Get the Middle Character
+
+
+function getMiddle(s) {
+
+  let index = Math.floor(s.length/2);
+
+  if ( s.length % 2 !== 0 ) {
+    return s[index];
+  };
+
+  return s.substr(index - 1, 2);
+}
+
+console.log(getMiddle("testin"));
