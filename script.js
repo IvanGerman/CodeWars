@@ -546,25 +546,42 @@
 // Array.diff
 
 
-function arrayDiff(a, b) {
+// function arrayDiff(a, b) {
 
-  // works for simple tests
-  // let a2 = [...new Set(a)];
+//   // works for simple tests
+//   // let a2 = [...new Set(a)];
 
-  // for (let i = 0; i < b.length; i++) {
+//   // for (let i = 0; i < b.length; i++) {
     
-  //   for (let j = 0; j < a2.length; j++) {
+//   //   for (let j = 0; j < a2.length; j++) {
 
-  //      if ( a2[j] === b[i] ) {
+//   //      if ( a2[j] === b[i] ) {
 
-  //        const index = a2.indexOf(a2[j]);
-  //        a2.splice(index, 1);
+//   //        const index = a2.indexOf(a2[j]);
+//   //        a2.splice(index, 1);
 
-  //      };
-  //   } 
-  // }
-  // return a2;
-  return a.filter( element => !b.includes(element) );
+//   //      };
+//   //   } 
+//   // }
+//   // return a2;
+//   return a.filter( element => !b.includes(element) );
+// };
+
+// console.log(arrayDiff([1,2,3], [1,2]));  
+
+
+
+//-----------------------------------------------------------------------------------------------------
+//Absent vowel
+
+function absentVowel(x){
+
+  if ( x.match(/a/gi) === null) return 0;
+  if ( x.match(/e/gi) === null) return 1;
+  if ( x.match(/i/gi) === null) return 2;
+  if ( x.match(/o/gi) === null) return 3;
+  if ( x.match(/u/gi) === null) return 4;
+  
 };
 
-console.log(arrayDiff([1,2,3], [1,2]));  
+console.log(absentVowel("John Doe hs seven red pples under his bsket" ));
