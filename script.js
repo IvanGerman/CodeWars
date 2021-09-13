@@ -591,15 +591,35 @@
 //Get the Middle Character
 
 
-function getMiddle(s) {
+// function getMiddle(s) {
 
-  let index = Math.floor(s.length/2);
+//   let index = Math.floor(s.length/2);
 
-  if ( s.length % 2 !== 0 ) {
-    return s[index];
-  };
+//   if ( s.length % 2 !== 0 ) {
+//     return s[index];
+//   };
 
-  return s.substr(index - 1, 2);
-}
+//   return s.substr(index - 1, 2);
+// }
 
-console.log(getMiddle("testin"));
+// console.log(getMiddle("testin"));
+
+
+//-----------------------------------------------------------------------------------------------------
+//Highest and Lowest
+
+
+
+function highAndLow(numbers){
+
+  const arr = numbers.split(" ");                          
+  const toNumbers = (arr) => arr.map(Number);        
+  let arrOfNumbers = toNumbers(arr);                  
+  let max = Math.max(...arrOfNumbers);            
+  let min = Math.min(...arrOfNumbers);              
+
+  return max.toString() + " " + min.toString();
+
+};
+
+console.log(highAndLow("8 3 -5 42 -1 0 0 -9 4 7 4 -4"));
